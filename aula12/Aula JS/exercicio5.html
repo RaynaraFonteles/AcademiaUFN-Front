@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o seu nome:
+    <input type="text" id="nomeInput">
+    <input type="text" id="idadeInput">
+    <button onclick="mostrarMensage()">Mostrar mensagem</button>
+
+    <p id="campoMensagem"></p>
+    <script>
+        function mostrarMensage(){
+            var nome = document.getElementById("nomeInput").value;
+            var idade = document.getElementById("idadeInput").value;
+
+            if( idade >= 18){
+                var mensagem = nome +  " é maior de idade.";
+            }else{
+                var mensagem = nome + " é menor de idade.";
+            }
+            document.getElementById("campoMensagem").textContent = mensagem
+        }
+    </script>
+    </body>
+</html>

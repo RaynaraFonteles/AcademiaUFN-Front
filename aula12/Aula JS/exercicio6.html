@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe dois numeros:<br><br>
+    <input type="text" id="n1"><br>
+    <input type="text" id="n2"><br><br>
+    <button id="botao" onclick="mostrarMensage()">Mostrar mensagem</button>
+
+    <p id="campoMensagem"></p>
+    <script>
+        function mostrarMensage(){
+            var n1 = parseFloat(document.getElementById("n1").value);
+            var n2 = parseFloat(document.getElementById("n2").value);
+
+            if(!isNaN(n1) && !isNaN(n2)){
+                var soma = n1 + n2;
+
+                if(soma % 2 === 0){
+                    $('#button').css("background-color", "blue");
+                }else{
+                    $('#button').css("background-color", "green");
+
+                }
+                
+                $("#campoMensagem").text(soma)
+            
+            }else{
+                alert("Digite apenas numeros");
+            }
+        }
+    </script>
+    </body>
+</html>
