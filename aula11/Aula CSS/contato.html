@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        #blocoLista{
+            border-width: 10px;
+            border-style:double;
+            border-top-color:red;
+            border-top-style: dashed;
+            float:left;
+            width: 30%;
+        }
+        #blocoFrase{
+            border:1px solid red;
+            background-color: bisque;
+            float:left;
+            width: 30%;
+        }
+
+        div.box{
+            height: 200px;
+            background: orange;
+            float:left;
+            width: 33%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div id="blocoLista">
+        <h1 id="vinhosBrancos">Vinhos Brancos</h1>
+        <ul>
+            <li class="branco" >branco</li>
+            <li class="branco">branco</li>
+            <li class="branco">tinto</li>
+        </ul>
+        <h1 id="vinhosTintos">Vinhos Tintos</h1>
+        <ul>
+            <li class="tinto">tinto</li>
+            <li class="tinto">tinto</li>
+            <li class="branco">branco</li>
+        </ul>
+    </div>
+    
+    <div id="blocoFrase">
+        <p style="font-size: 18px;">Dormir cedo e acordar cedo faz o homem 
+            <span style="font-weight: bold;color:black;font-size: 30px;">saudável</span>, 
+            <span class="branco">rico</span> e 
+            <span class="tinto">sábio</span>
+        </p>
+    </div>
+    <h1 style="position: absolute; top:500px; left:200px">Este é um texto absoluto</h1>
+</body>
+</html>

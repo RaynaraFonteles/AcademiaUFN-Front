@@ -1,0 +1,58 @@
+body{
+    background-image: url("https://www.ufn.edu.br/images/UFN_Branco_Horizontal_PNG.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    
+    margin: 0px 0px;
+}
+
+p{
+    color:orange;
+}
+
+h1{
+    text-transform: uppercase ;
+}
+
+h1:hover{
+    cursor: all-scroll;
+}
+a{
+    color:red;
+}
+
+a:link {
+    color:blue;
+}
+
+a:visited{
+    color:orange;
+}
+
+a:hover {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: blue;
+    background-color: red;
+}
+
+li.branco{
+    color:red
+}
+
+.branco{
+    color:aqua
+}
+
+.tinto{
+    color:blue
+}
+
+#vinhosBrancos{
+    color:red
+}
+
+#vinhosTintos{
+    color:purple
+}
