@@ -1,6 +1,7 @@
 # Aula 10 - HTML
 
-- Linguagem HTML
+Linguagem HTML:
+
 O Hypertext Markup Language (HTML), foi criado pelo matemático Tim Berners Lee, para suprir a necessidade de comunicação entre ele e um grupo de colegas pesquisadores. A partir de 1996 o desenvolvimento foi feito pelo World Wide Web Consortium (W3C).
 
 Pilares estipulados:
