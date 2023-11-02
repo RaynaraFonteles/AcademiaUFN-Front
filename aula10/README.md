@@ -14,7 +14,7 @@ HTML5:
 A partir da versão 5, começou a ser fornecido ferramentas para CSS e JavaScript.
 Foi definido um padrão universal do HTML (tags e suas funcionalidades).
 
-Arquitetura Cliente-Servidor
+Arquitetura Cliente-Servidor:
 Refere-se ao método de distribuição de aplicações computacionais através de muitas plataformas.
 Geralmente refere-se a um modelo onde dois ou mais computadores interagem de modo que um oferece os serviços aos outros.
 
