@@ -1,22 +1,18 @@
-Aula 10 - HTML
+# Aula 10 - HTML
 
-Linguagem HTML
-
-O Hypertext Markup Language (HTML), foi criado pelo matemático Tim Berners Lee, para suprir a necessidade de comunicação entre ele e um grupo de colegas pesquisadores.
-A partir de 1996 o desenvolvimento foi feito pelo World Wide Web Consortium (W3C).
+- Linguagem HTML
+O Hypertext Markup Language (HTML), foi criado pelo matemático Tim Berners Lee, para suprir a necessidade de comunicação entre ele e um grupo de colegas pesquisadores. A partir de 1996 o desenvolvimento foi feito pelo World Wide Web Consortium (W3C).
 
 Pilares estipulados:
 1. Um esquema de nomes para localização de fontes de informação na Web (URI);
 2. Um protocolo de acesso para acessas estas fontes (HTTP);
 3. Uma linguagem de Hypertexto, para fácil navegação entre as fontes (HTML).
 
-HTML5:
-A partir da versão 5, começou a ser fornecido ferramentas para CSS e JavaScript.
-Foi definido um padrão universal do HTML (tags e suas funcionalidades).
+- HTML5:
+A partir da versão 5, começou a ser fornecido ferramentas para CSS e JavaScript. Foi definido um padrão universal do HTML (tags e suas funcionalidades).
 
-Arquitetura Cliente-Servidor:
-Refere-se ao método de distribuição de aplicações computacionais através de muitas plataformas.
-Geralmente refere-se a um modelo onde dois ou mais computadores interagem de modo que um oferece os serviços aos outros.
+- Arquitetura Cliente-Servidor:
+Refere-se ao método de distribuição de aplicações computacionais através de muitas plataformas. Geralmente refere-se a um modelo onde dois ou mais computadores interagem de modo que um oferece os serviços aos outros.
 
 Cliente:
 1. Pode ser denominado como Front-End e WorkStation;
@@ -44,17 +40,17 @@ Tipos de serviços de um servidor:
 7. Servidor de Comunicação, etc.
 
 Fluxo:
-Cliente acesso um site pelo endereço;
-O servidor DNS recebe a requisição e encaminha para o endereço IP;
-O servidor do site processa e encaminha o front end ao browser (navegador do cliente);
-O Cliente recebe a pagina (html, css, js);
-No site, o cliente navega entre as páginas, cada interacão, o processo se repete.
+1. Cliente acesso um site pelo endereço;
+2. O servidor DNS recebe a requisição e encaminha para o endereço IP;
+3. O servidor do site processa e encaminha o front end ao browser (navegador do cliente);
+4. O Cliente recebe a pagina (html, css, js);
+5. No site, o cliente navega entre as páginas, cada interacão, o processo se repete.
 
-Páginas estáticas:
+- Páginas estáticas:
 O servidor encaminha páginas HTML com CSS e JS inteiros, tais como dos clientes, e seus browsers efetuam a interpretação destes códigos.
 
-Páginas dinâmicas:
+- Páginas dinâmicas:
 Quando a página precisa buscar informações do banco de dados, ou de arquivos.
 
-Hospedagem:
+- Hospedagem:
 Ao publicar um site devemos pensar em qual plataforma usar, levando em conta a linguagem utilizada no Back-End.
