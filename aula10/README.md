@@ -9,13 +9,9 @@ Pilares estipulados:
 2. Um protocolo de acesso para acessas estas fontes (HTTP);
 3. Uma linguagem de Hypertexto, para fácil navegação entre as fontes (HTML).
 
-HTML5:
+- HTML5: A partir da versão 5, começou a ser fornecido ferramentas para CSS e JavaScript. Foi definido um padrão universal do HTML (tags e suas funcionalidades).
 
-A partir da versão 5, começou a ser fornecido ferramentas para CSS e JavaScript. Foi definido um padrão universal do HTML (tags e suas funcionalidades).
-
-Arquitetura Cliente-Servidor:
-
-Refere-se ao método de distribuição de aplicações computacionais através de muitas plataformas. Geralmente refere-se a um modelo onde dois ou mais computadores interagem de modo que um oferece os serviços aos outros.
+- Arquitetura Cliente-Servidor: Refere-se ao método de distribuição de aplicações computacionais através de muitas plataformas. Geralmente refere-se a um modelo onde dois ou mais computadores interagem de modo que um oferece os serviços aos outros.
 
 Cliente:
 1. Pode ser denominado como Front-End e WorkStation;
