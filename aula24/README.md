@@ -89,11 +89,11 @@ Pode ser excessivamente pesado para projetos menores.
 
 Tarefa para Apresentação:
 
-1 - Escolher um framework: Vue, React ou Angular;
-2 - Pesquisa e Análise: Entender a história, evolução, características, abordagens e gerenciamento de estado;
-3 - Principais empresas que usam o framework. Quais produtos?;
-4 - Qual o diferencial da arquitetura escolhida?;
-5 - Como é a comunidade e documentação do framework?;
-6 - Como é a performance do framework?;
-7 - Exemplos de casos de uso ideal;
-8 - Futuro do framework: tendências gerais.
+- Escolher um framework: Vue, React ou Angular;
+- Pesquisa e Análise: Entender a história, evolução, características, abordagens e gerenciamento de estado;
+- Principais empresas que usam o framework. Quais produtos?;
+- Qual o diferencial da arquitetura escolhida?;
+- Como é a comunidade e documentação do framework?;
+- Como é a performance do framework?;
+- Exemplos de casos de uso ideal;
+- Futuro do framework: tendências gerais.
