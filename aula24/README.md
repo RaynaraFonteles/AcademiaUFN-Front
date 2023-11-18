@@ -48,7 +48,7 @@ Tecnologia:
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-Angular - Origem e Filosofia:
+- Angular - Origem e Filosofia:
 - Desenvolvido originalmente por Misko Hevery e Adam Abrons em 2009, e agora mantido pelo Google;
 - Criado para facilitar o desenvolvimento e testes de aplicações de uma única página;
 - Angular (versões 2+) foca em desempenho aprimorado, mobile-first e práticas de desenvolvimento modernas.
