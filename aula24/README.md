@@ -77,7 +77,7 @@ Contras:
 Menor comunidade e ecossistema em comparação com React e Angular;
 Pode enfrentar desafios em projetos de grande escala sem planejamento adequado.
 
-Angular - Prós:
+- Angular - Prós:
 Estrutura completa e robusta, ideal para aplicações empresariais;
 Facilita o desenvolvimento de aplicativos de larga escala com uma estrutura clara;
 Oferece recursos como injeção de dependência, routing e templating integrados.
