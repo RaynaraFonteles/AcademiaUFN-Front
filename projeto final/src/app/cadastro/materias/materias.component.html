@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="/"><strong>ESCOLAS</strong></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/cadastro">Cadastrar nova escola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listagem">Listagem de escolas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 shadow-sm p-3 mb-5 rounded bg-body">
+  <h2>Cadastro de escola</h2>
+  <span>Matérias</span>
+  <form class="mt-5" [formGroup]="materiasForm" (ngSubmit)="addMaterias()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome da matéria</label>
+      <input type="text" class="form-control" id="nome" formControlName="nome">
+      <div
+        *ngIf="materiasForm.get('nome')?.invalid &&
+        materiasForm.get('nome')?.touched"
+        class="text-danger"
+      >
+        Nome da matéria é obrigatório
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="semestre" class="form-label">Semestre em que se aplica</label>
+      <input type="text" class="form-control" id="semestre" formControlName="semestre">
+      <div
+        *ngIf="materiasForm.get('semestre')?.invalid &&
+        materiasForm.get('semestre')?.touched"
+        class="text-danger"
+      >
+        Semestre da matéria é obrigatório
+      </div>
+    </div>
+
+
+    <div class="mt-4">
+      <table class="table" *ngIf="materias.length > 0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Semestre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let materia of materias">
+            <td>{{ materia.nome }}</td>
+            <td>{{ materia.semestre }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="isLoading || materiasForm.invalid">
+      <span *ngIf="!isLoading">Salvar materia</span>
+      <span *ngIf="isLoading" class="spinner-border" role="status"></span>
+    </button>
+
+    <button class="m-3 btn btn-primary" *ngIf="!isLoading && materias.length > 0" (click)="next()">
+      Avançar >
+    </button>
+
+  </form>
+</div>

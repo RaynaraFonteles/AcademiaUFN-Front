@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="/"><strong>ESCOLAS</strong></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/cadastro">Cadastrar nova escola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listagem">Listagem de escolas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 shadow-sm p-3 mb-5 rounded bg-body">
+  <h2>Cadastro de escola</h2>
+  <span>Funcionários</span>
+  <form class="mt-5" [formGroup]="funcionariosForm" (ngSubmit)="addFuncionario()">
+    <div class="mb-3">
+      <label for="nomeFuncionario" class="form-label">Nome do funcionário</label>
+      <input type="text" class="form-control" id="nomeFuncionario" formControlName="nomeFuncionario">
+      <div
+        *ngIf="funcionariosForm.get('nomeFuncionario')?.invalid &&
+        funcionariosForm.get('nomeFuncionario')?.touched"
+        class="text-danger"
+      >
+        Nome do funcionário é obrigatório
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="cargoFuncionario" class="form-label">Cargo do funcionário</label>
+      <input type="text" class="form-control" id="cargoFuncionario" formControlName="cargoFuncionario">
+      <div
+        *ngIf="funcionariosForm.get('cargoFuncionario')?.invalid &&
+        funcionariosForm.get('cargoFuncionario')?.touched"
+        class="text-danger"
+      >
+        Cargo do funcionário é obrigatório
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <table class="table" *ngIf="funcionarios.length > 0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Cargo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let funcionario of funcionarios">
+            <td>{{ funcionario.nomeFuncionario }}</td>
+            <td>{{ funcionario.cargoFuncionario }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="isLoading || funcionariosForm.invalid">
+      <span *ngIf="!isLoading">Salvar Funcionário</span>
+      <span *ngIf="isLoading" class="spinner-border" role="status"></span>
+    </button>
+
+    <button class="m-3 btn btn-primary" *ngIf="!isLoading && funcionarios.length > 0" (click)="next()">
+      Avançar >
+    </button>
+
+  </form>
+</div>

@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="/"><strong>ESCOLAS</strong></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/cadastro">Cadastrar nova escola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listagem">Listagem de escolas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 shadow-sm p-3 mb-5 rounded bg-body">
+  <h2>Cadastro de escola</h2>
+  <span>Alunos</span>
+  <form class="mt-5" [formGroup]="alunosForm" (ngSubmit)="addAlunos()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome do aluno</label>
+      <input type="text" class="form-control" id="nome" formControlName="nome">
+      <div
+        *ngIf="alunosForm.get('nome')?.invalid &&
+        alunosForm.get('nome')?.touched"
+        class="text-danger"
+      >
+        Nome do aluno é obrigatório
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="endereco" class="form-label">Endereço do aluno</label>
+      <input type="text" class="form-control" id="endereco" formControlName="endereco">
+      <div
+        *ngIf="alunosForm.get('endereco')?.invalid &&
+        alunosForm.get('endereco')?.touched"
+        class="text-danger"
+      >
+        Endereço do aluno é obrigatório
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="documento" class="form-label">Documento do aluno</label>
+      <input type="text" class="form-control" id="documento" formControlName="documento">
+      <div
+        *ngIf="alunosForm.get('documento')?.invalid &&
+        alunosForm.get('documento')?.touched"
+        class="text-danger"
+      >
+        Documento do aluno é obrigatório
+      </div>
+    </div>
+
+
+    <div class="mt-4">
+      <table class="table" *ngIf="alunos.length > 0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Documento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let aluno of alunos">
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.endereco }}</td>
+            <td>{{ aluno.documento }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="isLoading || alunosForm.invalid">
+      <span *ngIf="!isLoading">Salvar Aluno</span>
+      <span *ngIf="isLoading" class="spinner-border" role="status"></span>
+    </button>
+
+    <button class="m-3 btn btn-primary" *ngIf="!isLoading && alunos.length > 0" (click)="next()">
+      Avançar >
+    </button>
+
+  </form>
+</div>

@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="/"><strong>ESCOLAS</strong></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/cadastro">Cadastrar nova escola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/listagem">Listagem de escolas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 shadow-sm p-3 mb-5 rounded bg-body">
+  <h2>Cadastro de escola</h2>
+  <span>Provas</span>
+  <form class="mt-5" [formGroup]="provasForm" (ngSubmit)="addProvas()">
+    
+    <div class="mb-3">
+      <label for="aluno" class="form-label">Selecione o aluno</label>
+      <select class="form-control" id="aluno" formControlName="aluno">
+        <option value=""></option>
+        <option *ngFor="let al of alunos" value={{al.id}}>{{al.nome}}</option>
+      </select>
+
+      <div
+        *ngIf="provasForm.get('aluno')?.invalid &&
+        provasForm.get('aluno')?.touched"
+        class="text-danger"
+      >
+        Aluno é obrigatório
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="materia" class="form-label">Selecione a matéria</label>
+      <select class="form-control" id="materia" formControlName="materia" >
+        <option value=""></option>
+        <option *ngFor="let mt of materias" value={{mt.id}}>{{mt.nome}}</option>
+      </select>
+
+      <div
+        *ngIf="provasForm.get('materia')?.invalid &&
+        provasForm.get('materia')?.touched"
+        class="text-danger"
+      >
+        Matéria é obrigatória
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="nota" class="form-label">Nota da prova</label>
+      <input type="text" class="form-control" id="nota" formControlName="nota">
+      <div
+        *ngIf="provasForm.get('nota')?.invalid &&
+        provasForm.get('nota')?.touched"
+        class="text-danger"
+      >
+        Nome da matéria é obrigatório
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <table class="table" *ngIf="provas.length > 0">
+        <thead>
+          <tr>
+            <th>Aluno</th>
+            <th>Matéria</th>
+            <th>Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prova of provas">
+            <td>{{ prova.aluno }}</td>
+            <td>{{ prova.materia }}</td>
+            <td>{{ prova.nota }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="isLoading || provasForm.invalid">
+      <span *ngIf="!isLoading">Salvar prova</span>
+      <span *ngIf="isLoading" class="spinner-border" role="status"></span>
+    </button>
+
+    <button class="m-3 btn btn-primary" *ngIf="!isLoading && provas.length > 0" (click)="next()">
+      Avançar >
+    </button>
+
+    <div ></div>
+
+  </form>
+</div>
