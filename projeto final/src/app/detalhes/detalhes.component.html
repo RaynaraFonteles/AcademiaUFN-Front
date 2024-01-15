@@ -24,17 +24,23 @@
   </div>
 </div>
 <div *ngIf="!isLoading">
-  <form>
+  <form [formGroup]="escolaForm" (ngSubmit)="onUpdate()">
     <div class="container mt-5 mb-5 shadow-sm p-3 rounded bg-body">
       <h3 clas="mt-5">Detalhes da escola</h3>
       <div class="mb-3">
-        <label for="" class="form-label">Nome da escola</label>
-        <input type="text" class="form-control" id="" placeholder="" value="Escola Estadual Dr. Heitor Penteado">
+        <label for="nome" class="form-label">Nome da escola</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome">
+        <div *ngIf="escolaForm.get('nome')?.invalid && escolaForm.get('nome')?.touched" class="text-danger">
+          Nome é obrigatório
+        </div>
       </div>
+  
       <div class="mb-3">
-        <label for="" class="form-label">Endereço da escola</label>
-        <input type="text" class="form-control" id="" placeholder=""
-          value="Rua Profesores dos, 40 - Centro, Americana - SP, 13465-060">
+        <label for="telefone" class="form-label">Endereço da escola</label>
+        <input type="text" class="form-control" id="endereco" formControlName="endereco">
+        <div *ngIf="escolaForm.get('endereco')?.invalid && escolaForm.get('endereco')?.touched" class="text-danger">
+          Endereço é obrigatório
+        </div>
       </div>
     </div>
     <div class="container mt-5 mb-5 shadow-sm p-3 rounded bg-body">

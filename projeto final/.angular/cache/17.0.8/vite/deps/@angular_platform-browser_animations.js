@@ -1,10 +1,10 @@
 import {
   BrowserModule,
   DomRendererFactory2
-} from "./chunk-6YAA32QX.js";
+} from "./chunk-XNLJHINR.js";
 import {
   DOCUMENT
-} from "./chunk-KGEAT5EH.js";
+} from "./chunk-WWCMP3W4.js";
 import {
   ANIMATION_MODULE_TYPE,
   ApplicationRef,
@@ -21,7 +21,8 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-THWPMT2E.js";
+} from "./chunk-QVLHSLBS.js";
+import "./chunk-A7YNPLSR.js";
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AUTO_STYLE = "*";

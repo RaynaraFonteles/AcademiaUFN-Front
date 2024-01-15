@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CadastroService } from '../cadastro.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,28 +11,35 @@ import { CommonModule } from '@angular/common';
 })
 
 
-
-export class ListagemComponent {
-  escolas: any[] = [
-    {
-      id: 0,
-      nome: 'Escola Estadual Dr. Heitor Penteado',
-      endereco: 'Rua Profesores dos, 40 - Centro, Americana - SP, 13465-060'
-    },
-    {
-      id: 1,
-      nome: 'Colégio São Paulo',
-      endereco: 'Av. Cel. Sezefredo Fagundes, 840 - Tucuruvi, São Paulo - SP, 02306-001'
-    },
-    {
-      id: 2,
-      nome: 'Colégio São Domingos',
-      endereco: 'R. Monte Alegre, 1083 - Perdizes, São Paulo - SP, 05014-001'
-    },
-  ];
-  isLoading = false;
-  
+export class ListagemComponent implements OnInit {
+  escolas: any[] = []
+  isLoading = true;
 
   constructor(private cadastroService: CadastroService) {}
 
+  ngOnInit() {
+    this.cadastroService.getAllEscolas()
+      .then(response => {
+        this.escolas = response.data
+        this.isLoading = false;
+      })
+      .catch(error => {
+        console.error('Erro ao carregar escolas', error);
+        this.isLoading = false;
+      });
+  }
+
+
+  handleDelete(id: number) {
+    this.isLoading = true;
+    this.cadastroService.deleteEscola(id)
+      .then(() => {
+        window.location.reload();
+        this.isLoading = false;
+      })
+      .catch(error => {
+        console.error('Erro ao deletar escola', error);
+        this.isLoading = false;
+      });
+  }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { CadastroService } from '../../cadastro.service';
 
 @Component({
   selector: 'app-cadastro-patrimonios',
@@ -16,8 +16,9 @@ export class CadastroPatrimoniosComponent {
   patrimoniosForm: FormGroup;
   patrimonios: any[] = []
   isLoading = false;
+  id: any = null
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private cadastroService: CadastroService) {
     this.patrimoniosForm = this.fb.group({
         nomePatrimonio: ['', Validators.required],
         descricaoPatrimonio: ['', Validators.required],
@@ -25,22 +26,32 @@ export class CadastroPatrimoniosComponent {
     });
   }
   
-  addFuncionario() {
+  addPatrimonios() {
     if (this.patrimoniosForm.invalid) {
       return;
     }
+    this.id = window.location.pathname.split('=')[1]
     const {nomePatrimonio, descricaoPatrimonio, statusPatrimonio} = this.patrimoniosForm.value
-    
-    this.patrimonios.push({
-      nomePatrimonio,
-      descricaoPatrimonio,
-      statusPatrimonio: JSON.parse(statusPatrimonio) ? 'Ativa' : 'Inativa'
-    });
-    this.patrimoniosForm.reset();
+
+
+    this.cadastroService.postPatrimonios(this.id, nomePatrimonio, descricaoPatrimonio, statusPatrimonio)
+      .then(() => {
+        this.patrimonios.push({
+          nomePatrimonio,
+          descricaoPatrimonio,
+          statusPatrimonio
+        });
+        this.patrimoniosForm.reset();
+        this.isLoading = false;
+      })
+      .catch((error) => {
+        console.error('Erro ao cadastrar patrimonio', error);
+        this.isLoading = false;
+      });    
   }
 
   next() {
-    this.router.navigate(['cadastro/turma', { id: 1 }]);
+    this.router.navigate(['cadastro/turma', { id: this.id }]);
   }
 }
 

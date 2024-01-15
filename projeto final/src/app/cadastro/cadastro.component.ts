@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { CadastroService } from '../cadastro.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,7 +16,7 @@ export class CadastroEscolaComponent {
   cadastroForm: FormGroup;
   isLoading = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private cadastroService: CadastroService) {
     this.cadastroForm = this.fb.group({
       nome: ['', Validators.required],
       endereco: ['', Validators.required],
@@ -27,7 +27,18 @@ export class CadastroEscolaComponent {
     if (this.cadastroForm.invalid) {
       return;
     }
-    this.router.navigate(['cadastro/funcionarios', { id: 1 }]);
+
+    const {nome, endereco} = this.cadastroForm.value
+
+    this.cadastroService.postEscola(nome, endereco)
+      .then(response => {
+        this.isLoading = false;
+        this.router.navigate(['cadastro/funcionarios', { id: response.data }]);
+      })
+      .catch(error => {
+        console.error('Erro ao carregar escolas', error);
+        this.isLoading = false;
+      });
   }
 }
 
